@@ -1,5 +1,3 @@
-Diagnostics.sh
-
 #! /bin/bash
 
 source /root/user-openrc
