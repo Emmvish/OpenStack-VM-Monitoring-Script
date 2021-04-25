@@ -12,12 +12,12 @@ sed -i '/^$/d' projects1a.txt
 TENANT_ID=($(python parse1d.py| tr -d '[],'))
 TENANT_NAME=($(python parse2d.py| tr -d '[],'))
 TENANTS=${#TENANT_ID[@]}
-sed -i "1s/#export/export/1" /root/apoorv-openrc
+sed -i "1s/#export/export/1" /root/user-openrc
 for (( i=0; i<TENANTS; i++ ))
 do
 tname=$( echo ${TENANT_ID[i]} | sed "s/'//g" )
-sed -i "s/<project>/$tname/g" /root/apoorv-openrc
-source /root/apoorv-openrc
+sed -i "s/<project>/$tname/g" /root/user-openrc
+source /root/user-openrc
 openstack server list > projects1b.txt
 if [ -s projects1b.txt ]
 then
